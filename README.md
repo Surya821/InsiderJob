@@ -7,9 +7,9 @@
 # 💼 INSIDERJOBS
 *A Full-Stack MERN Job Portal Web Application*
 
-![last-commit](https://img.shields.io/github/last-commit/Surya821/Insiderjobs?style=flat&logo=git&logoColor=white&color=2563EB)
-![repo-top-language](https://img.shields.io/github/languages/top/Surya821/Insiderjobs?style=flat&color=2563EB)
-![repo-language-count](https://img.shields.io/github/languages/count/Surya821/Insiderjobs?style=flat&color=2563EB)
+![last-commit](https://img.shields.io/github/last-commit/Surya821/InsiderJob?style=flat&logo=git&logoColor=white&color=2563EB)
+![repo-top-language](https://img.shields.io/github/languages/top/Surya821/InsiderJob?style=flat&color=2563EB)
+![repo-language-count](https://img.shields.io/github/languages/count/Surya821/InsiderJob?style=flat&color=2563EB)
 
 **Tech Stack Used**
 
@@ -55,8 +55,6 @@
 
 | Add Job | Manage Jobs | View Applications |
 |:--:|:--:|:--:|
-| ![Add Job](screenshots/add-job.png) | ![Manage Jobs](screenshots/manage-jobs.png) | ![Applications](screenshots/view-applications.png) |
-
 | ![Add Job](screenshots/add-job.png) | ![Manage Jobs](screenshots/manage-jobs.png) | ![Applications](screenshots/view-applications.png) |
 
 ---
