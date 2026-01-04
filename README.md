@@ -229,7 +229,8 @@ VITE_CLERK_PUBLISHABLE_KEY=your_vite_clerk_publishable_key
 VITE_BACKEND_URL=your_backend_url
 ```
 
-### 🔑 Environment Variables
+<br/>
+
 Create a .env file in server/:
 ```bash
 MONGO_URI=your_mongodb_url
