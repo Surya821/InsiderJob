@@ -156,7 +156,7 @@ It provides a complete recruitment workflow with **role-based access** for **Can
 
 ### **Deployment**
 - Vercel (Frontend)
-- Backend deployable on Render / Railway
+- Vercel (Backend)
 
 ---
 
@@ -185,6 +185,8 @@ Insiderjobs/
 │
 └── README.md
 ```
+
+---
 
 ## 🚀 Getting Started
 
