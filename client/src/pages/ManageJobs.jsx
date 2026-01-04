@@ -64,14 +64,14 @@ const ManageJobs = () => {
               <th className='py-2 px-4 text-left'>Job Title</th>
               <th className='py-2 px-4 text-left max-sm:hidden'>Date</th>
               <th className='py-2 px-4 text-left max-sm:hidden'>Location</th>
-              <th className='py-2 px-4 text-center'>Applicants</th>
+              <th className='py-2 px-4 text-left'>Applicants</th>
               <th className='py-2 px-4 text-left'>Visible</th>
             </tr>
           </thead>
           <tbody>
             {jobs.map((job, index)=>(
             <tr key={index} className='text-gray-700'>
-              <td className='py-2 px-4 border-b border-gray-200 text-center max-sm:hidden'>{index+1}</td>
+              <td className='py-2 px-4 border-b border-gray-200 text-left max-sm:hidden'>{index+1}</td>
               <td className='py-2 px-4 border-b border-gray-200 text-left'>{job.title}</td>
               <td className='py-2 px-4 border-b border-gray-200 text-left max-sm:hidden'>{moment(job.date).format('ll')}</td>
               <td className='py-2 px-4 border-b border-gray-200 text-left max-sm:hidden'>{job.location}</td>
