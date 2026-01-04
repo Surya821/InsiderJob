@@ -1,12 +1,8 @@
 import React, { useContext } from 'react';
-import { assets } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
-import axios from 'axios';
 
 const jobCard = ({job}) => {
-
-    const {fetchUserApplications} = useContext(AppContext);
 
     const navigate = useNavigate();
 
