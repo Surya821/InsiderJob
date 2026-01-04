@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import moment from 'moment'
 import {useNavigate} from 'react-router-dom'
 import { AppContext } from '../context/AppContext.jsx'
@@ -11,6 +11,7 @@ const ManageJobs = () => {
   const navigate = useNavigate();
 
   const {backendUrl,companyToken} = useContext(AppContext)
+  console.log("Company token:", companyToken);
 
   const [jobs,setJobs] = useState(false);
 
@@ -18,6 +19,7 @@ const ManageJobs = () => {
   const fetchCompanyJobs = async()=>{
     try {
       const {data} = await axios.get(backendUrl+'/api/company/list-jobs',{headers:{token:companyToken}})
+
       if (data.success) {
         setJobs(data.jobsData.reverse());
       } else{

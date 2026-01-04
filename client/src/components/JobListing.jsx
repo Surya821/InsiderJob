@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import {useContext, useState, useEffect} from 'react';
 import JobCard from './jobCard.jsx';
 import { AppContext } from '../context/AppContext';
 import { assets, JobCategories, JobLocations } from '../assets/assets';
@@ -7,7 +7,7 @@ const JobListing = () => {
 
     const {isSearched, searchFilter, setSearchFilter, jobs } = useContext(AppContext);
     
-    const [showFilter, setShowFilter] = useState(false );
+    const [showFilter, setShowFilter] = useState(false);
     const [currentPage, setCurrentPage]= useState(1);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedLocations, setSelectedLocations]= useState([]);

@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect, useContext} from 'react'
+import {useState, useRef, useEffect, useContext} from 'react'
 import Quill from 'quill';
 import { JobCategories, JobLocations } from '../assets/assets';
 import axios from 'axios';

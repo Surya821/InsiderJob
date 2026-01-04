@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import {useContext} from 'react';
 import {assets} from '../assets/assets.js';
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react';
 import {Link, useNavigate} from 'react-router-dom';

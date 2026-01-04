@@ -1,5 +1,5 @@
-import React, { useContext,useState, useEffect } from 'react'
-import { assets, viewApplicationsPageData } from '../assets/assets'
+import { useContext,useState, useEffect } from 'react'
+import { assets } from '../assets/assets'
 import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
