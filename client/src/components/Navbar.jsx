@@ -12,6 +12,8 @@ const Navbar = () => {
 
     const {setShowRecruiterLogin} = useContext(AppContext);
 
+    const{companyToken} = useContext(AppContext);
+
     return (
         <div className='shadow py-4'>
             <div className='container px-4 2xl:px-20 mx-auto flex justify-between items-center'>
@@ -25,8 +27,8 @@ const Navbar = () => {
                         <UserButton/>
                         </div>
                     : <div className='flex gap-4 max-sm:text-xs'>
-                    <button onClick={e=> setShowRecruiterLogin(true)} className='text-gray-600 cursor-pointer'>Recruiter Login</button>
-                    <button onClick={e => openSignIn() } className='bg-blue-600 text-white px-6 sm:px-9 py-2 rounded-full cursor-pointer'>Login</button>
+                        {companyToken ? <button onClick={e=> navigate('/dashboard/manage-jobs')} className='text-gray-600 cursor-pointer'>Recruiter Dashboard</button> : <button onClick={e=> setShowRecruiterLogin(true)} className='text-gray-600 cursor-pointer'>Recruiter Login</button>}
+                        {companyToken ? null : <button onClick={e => openSignIn() } className='bg-blue-600 text-white px-6 sm:px-9 py-2 rounded-full cursor-pointer'>Login</button>}
                 </div>
                 }
                 
