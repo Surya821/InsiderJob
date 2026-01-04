@@ -223,6 +223,13 @@ npm run dev
 ---
 
 ### 🔑 Environment Variables
+Create a .env file in client/:
+```bash
+VITE_CLERK_PUBLISHABLE_KEY=your_vite_clerk_publishable_key
+VITE_BACKEND_URL=your_backend_url
+```
+
+### 🔑 Environment Variables
 Create a .env file in server/:
 ```bash
 MONGO_URI=your_mongodb_url
@@ -230,6 +237,9 @@ JWT_SECRET=your_secret_key
 CLOUDINARY_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
+CLERK_PUBLISHABLE_KEY=your_clerk_publishabkle_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+CLERK_WEBHOOK_SECRET=your_clerk_webhook_secret
 ```
 
 ---
