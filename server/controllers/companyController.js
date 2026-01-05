@@ -118,7 +118,7 @@ export const postJob = async(req,res) =>{
 
         await newJob.save();
 
-        res.json({success:true, newJob})
+        res.json({success:true, newJob, message:"Job added"})
     } catch (error) {
         res.json({success:false, message:error.message})
     }
@@ -197,5 +197,84 @@ export const changeVisibility = async(req,res)=>{
 
     } catch (error) {
         res.json({success:false, message:error.message})
+    }
+}
+
+// Delete Job
+export const deleteJob = async(req,res)=>{
+    try {
+        const {id} = req.params
+        const companyId = req.company._id
+        const job = await Job.findById(id)
+
+        if(!job){
+            res.json({success:false, message:"Job not found"})
+        }
+
+        if (job.companyId.toString() !== companyId.toString()) {
+            return res.json({ success: false, message: "Unauthorized action" });
+        }
+
+        await JobApplication.deleteMany({jobId: id});
+
+        await Job.findByIdAndDelete(id);
+
+        res.json({success:true, message:"Job deleted successfully"})
+
+    } catch (error) {
+        res.json({success:false, message:error.message})
+    }
+}
+
+export const getCompanyJob = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const companyId = req.company._id;
+    
+        const job = await Job.findById(id);
+    
+        if (!job) {
+            return res.json({ success: false, message: "Job not found" });
+        }
+    
+        if (job.companyId.toString() !== companyId.toString()) {
+            return res.json({ success: false, message: "Unauthorized access" });
+        }
+    
+        res.json({ success: true, job });
+        } catch (error) {
+        res.json({ success: false, message: error.message });
+    }
+};
+
+
+export const editJob = async(req,res)=>{
+    try {
+        const {id} = req.params
+        const companyId = req.company._id
+        const {title, description, location, salary, level, category} = req.body;
+        const job = await Job.findById(id)
+
+        if(!job){
+            res.json({success:false, message:"Job not found"})
+        }
+
+        if (job.companyId.toString() !== companyId.toString()) {
+            return res.json({ success: false, message: "Unauthorized action" });
+        }
+
+        job.title = title;
+        job.description = description;
+        job.location = location;
+        job.salary = salary;
+        job.level = level;
+        job.category = category;
+
+        await job.save();
+
+        res.json({success:true, message:"Job Edited"});
+        
+    } catch (error) {
+        res.json({success:false, message:error.message});
     }
 }

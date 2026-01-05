@@ -20,7 +20,6 @@ const AddJob = () => {
 
     const onSubmitHandler = async(e)=>{
         e.preventDefault();
-
         try {
             const description =quillRef.current.root.innerHTML;
             const {data} = await axios.post(backendUrl+'/api/company/post-job',
