@@ -95,38 +95,50 @@ const ManageJobs = () => {
       <div className="w-full max-w-6xl my-3 px-2 sm:px-4">
         <table className="w-full table-fixed bg-white border border-gray-200 rounded-lg text-sm">
           <thead>
-            <tr className="border-b border-gray-300">
-              <th className="py-2 px-2 text-left max-sm:hidden">#</th>
-              <th className="py-2 px-2 text-left">Job Title</th>
-              <th className="py-2 px-2 text-center max-sm:hidden">Date</th>
-              <th className="py-2 px-2 text-center max-sm:hidden">Location</th>
-              <th className="py-2 px-2 text-center">Applicants</th>
-              <th className="py-2 px-2 text-center">Visible</th>
-
-              {/* Desktop */}
-              <th className="py-2 px-2 text-center max-sm:hidden">Edit Job</th>
-              <th className="py-2 px-2 text-center max-sm:hidden">Delete Job</th>
-
-              {/* Mobile */}
-              <th className="py-2 px-2 text-left sm:hidden w-10"></th>
+          <tr className="border-b border-gray-300">
+              <th className="py-2 px-1 w-8 text-left max-sm:hidden">
+                #
+              </th>
+              <th className="py-2 px-2 text-left w-[30%] sm:w-[35%] sm-w:[25%]">
+                Job Title
+              </th>
+              <th className="py-2 px-2 text-left max-sm:hidden w-[12%]">
+                Date
+              </th>
+              <th className="py-2 px-2 text-left max-sm:hidden w-[13%]">
+                Location
+              </th>
+              <th className="py-2 px-2 text-center w-[30%] sm:w-[10%]">
+                Applicants
+              </th>
+              <th className="py-2 px-2 text-center w-[30%] sm:w-[8%]">
+                Visible
+              </th>
+              <th className="py-2 px-2 text-center max-sm:hidden w-[8%]">
+                Edit
+              </th>
+              <th className="py-2 px-2 text-center max-sm:hidden w-[8%]">
+                Delete
+              </th>
+              <th className="py-2 px-1 text-center sm:hidden w-8"></th>
             </tr>
           </thead>
 
           <tbody>
             {jobs.map((job, index) => (
               <tr key={job._id} className="border-b border-gray-300 text-gray-700">
-                <td className="py-2 px-2 max-sm:hidden">{index + 1}</td>
+                <td className="py-2 px-2 max-sm:hidden ">{index + 1}</td>
 
                 {/* Job title wraps */}
                 <td className="py-2 px-2 break-words max-w-[140px] sm:max-w-none font-medium">
                   {job.title}
                 </td>
 
-                <td className="py-2 px-2 text-center max-sm:hidden">
+                <td className="py-2 px-2 text-left max-sm:hidden ">
                   {moment(job.date).format("ll")}
                 </td>
 
-                <td className="py-2 px-2 text-center max-sm:hidden">{job.location}</td>
+                <td className="py-2 px-2 text-left max-sm:hidden ">{job.location}</td>
 
                 <td className="py-2 px-2 text-center">{job.applicants}</td>
 
@@ -143,7 +155,7 @@ const ManageJobs = () => {
                 <td className="py-2 px-2 text-center max-sm:hidden">
                   <button
                     onClick={() => navigate(`edit-job/${job._id}`)}
-                    className="text-blue-600 hover:underline"
+                    className="cursor-pointer text-gray-600"
                   >
                     Edit
                   </button>
@@ -198,7 +210,7 @@ const ManageJobs = () => {
         <div className="mt-4 flex justify-end">
           <button
             onClick={() => navigate("/dashboard/add-job")}
-            className="py-2 px-4 bg-black text-white rounded"
+            className="cursor-pointer py-2 px-4 bg-black text-white rounded"
           >
             Add New Job
           </button>

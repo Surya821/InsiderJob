@@ -37,15 +37,16 @@ const Dashboard = () => {
                             <p className='max-sm:hidden'>Welcome, {companyData.name}</p>
                             <div className='relative group' onClick={() => setOpen(!open)}>
                                 <img className='w-8 border border-gray-600 rounded-full' src={companyData.image} alt="" />
-                                <div className={`absolute group-hover:block ${open ? "block" : "hidden"} top-0 right-0 z-10 text-black rounded pt-12`}>
+                                <div className={`absolute sm:group-hover:block ${open ? "block" : "hidden"} top-0 right-0 z-10 text-black rounded pt-12`}>
                                     <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
                                         {/* <li className='py-1 px-2 cursor-pointer pr-5'>My Profile</li> */}
-                                        <li onClick={logout} className='py-1 px-2 cursor-pointer pr-10'>Logout</li>
+                                        <li className='border-b py-1 px-2 cursor-pointer relative sm:hidden'><p>Hello, {companyData.name}</p></li>
+                                        <li onClick={logout} className='py-1 px-2 text-red-600 cursor-pointer pr-10'>Logout</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        ) }
+                    ) }
                 </div>
             </div>
 
