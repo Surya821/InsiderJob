@@ -5,7 +5,7 @@ import { assets, JobCategories, JobLocations } from '../assets/assets';
 
 const JobListing = () => {
 
-    const {isSearched, searchFilter, setSearchFilter, jobs } = useContext(AppContext);
+    const {isSearched, searchFilter, setSearchFilter, jobs, userApplication } = useContext(AppContext);
     
     const [showFilter, setShowFilter] = useState(false);
     const [currentPage, setCurrentPage]= useState(1);
@@ -13,6 +13,12 @@ const JobListing = () => {
     const [selectedLocations, setSelectedLocations]= useState([]);
 
     const [filteredJobs, setFilteredJobs] = useState(jobs);
+
+    const isJobApplied = (jobId) => {
+        return userApplication?.some(
+            (item) => item.jobId._id === jobId
+        );
+    };
 
     const handleCategoryChange = (category)=>{
         setSelectedCategories(prev=> prev.includes(category) ? prev.filter(c=> c!==category) : [...prev, category]);
@@ -27,13 +33,17 @@ const JobListing = () => {
         const matchesLocation = job => selectedLocations.length === 0 || selectedLocations.includes(job.location);
         const matchesTitle = job => searchFilter.title === "" || job.title.toLowerCase().includes(searchFilter.title.toLowerCase());
         const matchesSearchLocation = job => searchFilter.location === "" || job.location.toLowerCase().includes(searchFilter.location.toLowerCase());
-        const newFilteredJobs = jobs.slice().reverse().filter(
-            job => matchesCategory(job) && matchesLocation(job) && matchesTitle(job) && matchesSearchLocation(job)
-        );
+        const newFilteredJobs = jobs.slice().reverse().filter(job => matchesCategory(job) && matchesLocation(job) && matchesTitle(job) && matchesSearchLocation(job))
+        .sort((a, b) => {
+            const aApplied = isJobApplied(a._id);
+            const bApplied = isJobApplied(b._id);
+                if (aApplied === bApplied) return 0;
+                return aApplied ? 1 : -1; // applied jobs go LAST
+            });
 
         setFilteredJobs(newFilteredJobs);
         setCurrentPage(1);
-    },[jobs,selectedLocations, selectedCategories, searchFilter])
+    },[jobs,selectedLocations, selectedCategories, searchFilter, userApplication])
 
     return (
         <div className='container 2xl:px-20 mx-auto flex flex-col lg:flex-row max-lg:space-y-8 py-8'>

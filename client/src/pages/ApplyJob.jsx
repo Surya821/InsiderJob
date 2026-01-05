@@ -123,9 +123,7 @@ const checkAlreadyApplied = ()=>{
             </div>
 
             <div className="flex flex-col justify-center text-end text-sm max-md:mx-auto max-md:text-center">
-              <button onClick={applyHandler} className="cursor-pointer bg-blue-600 p-2.5 px-10 text-white rounded">
-              {isAlreadyApplied? 'Applied': 'Apply Now'}
-              </button>
+            {isAlreadyApplied? <button className='bg-gray-600 text-white px-4 py-2 rounded' disabled="true" >Applied</button>: <button onClick={()=> {navigate(`/apply-job/${job._id}`); scrollTo(0,0); }} className='bg-blue-600 text-white px-4 py-2 rounded cursor-pointer'>Apply Now</button>}
               <p className="mt-1 text-gray-600">
                 Posted {moment(JobData.data).fromNow()}
               </p>
@@ -139,9 +137,7 @@ const checkAlreadyApplied = ()=>{
                 className="rich-text lg:max-w-[95%]"
                 dangerouslySetInnerHTML={{ __html: JobData.description }}
               ></div>
-              <button onClick={applyHandler} className=" cursor-pointer bg-blue-600 p-2.5 px-10 text-white rounded mt-10">
-                {isAlreadyApplied? 'Applied': 'Apply Now'}
-              </button>
+              {isAlreadyApplied? <button className='bg-gray-600 text-white px-4 py-2 rounded' disabled="true" >Applied</button>: <button onClick={()=> {navigate(`/apply-job/${job._id}`); scrollTo(0,0); }} className='bg-blue-600 text-white px-4 py-2 rounded cursor-pointer'>Apply Now</button>}
             </div>
 
             {/* Right Section More Jobs */}
